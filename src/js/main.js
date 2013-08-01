@@ -71,10 +71,15 @@ $(document).on({
     }
 });
 
+$('input[name="modifiers[]"]').on('change', function(){
+    $(document).trigger('update-expression');
+})
 
 
 function buildExpression()
 {
+    var modifiers = $('input[name="modifiers[]"]:checked').map(function(){ return $(this).val(); });
+
     expression = new VerEx();
     $conditions_container.find('.row').each(function(){
         var $this = $(this),
@@ -90,6 +95,10 @@ function buildExpression()
 
     if ($conditions_container.children().length == 0) {
         expression = '';
+    }
+
+    for (var i = 0; i < modifiers.length; i++) {
+        expression.addModifier(modifiers[i]);
     }
 
     $('#expression').find('span').text(expression);

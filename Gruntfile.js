@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 				src: [
 					'<banner:meta.banner>',
 					'src/bootstrap/js/button.js',
-					'src/bootstrap/js/dropdown.js',
+					'src/js/bootstrap-dropdown.js',
 					'src/bootstrap/js/transition.js',
 					'src/js/jquery.dragsort-0.5.1.js',
 					'src/js/VerbalExpressions.js',
