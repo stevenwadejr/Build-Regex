@@ -1,0 +1,24 @@
+body {
+    padding-top: 75px;
+}
+.icon {
+    font-size: 12px;
+}
+.remove-match-option,
+.move-match-option {
+    max-height: 38px;
+    width: 8%;
+}
+    .move-match-option .icon {
+        font-size: 18px;
+    }
+.panel-small {
+    padding: 8px 15px;
+}
+#conditions .row {
+    margin-bottom: 20px;
+}
+.dropdown-menu .checkbox {
+    margin: 0 auto;
+    width: 80%;
+}
