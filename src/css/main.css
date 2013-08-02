@@ -1,5 +1,5 @@
 body {
-    padding-top: 75px;
+    padding: 75px 0 36px;
 }
 .icon {
     font-size: 12px;
@@ -21,4 +21,14 @@ body {
 .dropdown-menu .checkbox {
     margin: 0 auto;
     width: 80%;
+}
+footer {
+    background: #eee;
+    bottom: 0;
+    font-size: 12px;
+    height: 36px;
+    left: 0;
+    padding: 11px;
+    position: fixed;
+    right: 0;
 }
