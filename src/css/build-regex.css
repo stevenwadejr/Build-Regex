@@ -2630,6 +2630,9 @@ body {
     max-height: 38px;
     width: 8%;
 }
+.move-match-option {
+    cursor: move !important;
+}
     .move-match-option .icon {
         font-size: 18px;
     }
