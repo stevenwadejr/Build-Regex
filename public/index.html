@@ -41,15 +41,17 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-10">
-                    <div class="panel panel-small" id="expression">
-                        <strong>Expression: </strong><span></span>
-                    </div>
-                </div>
                 <button id="new-condition" class="btn btn-primary col-lg-2">
                     New Condition <i class="icon icon-plus"></i>
                 </button>
+                <div class="col-lg-10">
+                    <div class="" id="expression">
+                        <strong>Expression: </strong><span></span>
+                    </div>
+                </div>
             </div>
+
+            <hr>
 
             <div id="conditions"></div>
 
@@ -62,9 +64,7 @@
         </footer>
 
         <script type="text/template" id="row-template">
-            <div class="col-lg-2">
-                <select class="match-options form-control"></select>
-            </div>
+            <select class="match-options form-control col-lg-2"></select>
             <div class="col-lg-8">
                 <input type="text" class="form-control match-param" placeholder="Match" />
             </div>

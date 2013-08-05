@@ -32,3 +32,11 @@ footer {
     position: fixed;
     right: 0;
 }
+#expression {
+    border-left: 1px solid #ddd;
+    padding: 8px 15px;
+}
+.match-options {
+    display: inline-block !important;
+    width: 16.666666666666664% !important;
+}
