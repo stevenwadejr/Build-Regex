@@ -1097,6 +1097,7 @@ var $conditions_container = $('#conditions'),
         lineBreak: 'Line Break',
         maybe: 'Maybe',
         or: 'Or',
+        range: 'Range',
         something: 'Something',
         somethingBut: 'Something But',
         startOfLine: 'Start of Line',
@@ -1173,7 +1174,15 @@ function buildExpression()
         if ($.inArray(condition, options_without_params) > -1) {
             expression[condition]();
         } else {
-            expression[condition](param);
+            if (condition == 'range') {
+                param = param.replace(/\[|\]/g, '');
+                param = $.inArray('-', param) > -1 ? param.replace('-', ',') : param;
+                param = param.split(',');
+                param[1] = param[1] == undefined ? '' : param[1];
+                expression[condition](param[0], param[1]);
+            } else {
+                expression[condition](param);
+            }
         }
     });
 
