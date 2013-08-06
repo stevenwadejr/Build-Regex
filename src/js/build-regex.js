@@ -1117,11 +1117,16 @@ $('#new-condition').on('click', function(){
                 });
             })
             .on('change', function(){
-                if ($.inArray($(this).val(), options_without_params) > -1) {
-                    $(this).parents('.row').find('input').attr('disabled', 'disabled');
+                var $this = $(this),
+                    $input = $(this).parents('.row').find('input');
+                if ($.inArray($this.val(), options_without_params) > -1) {
+                    $input.attr('disabled', 'disabled');
                 } else {
-                    $(this).parents('.row').find('input').removeAttr('disabled');
+                    $input.removeAttr('disabled');
                 }
+
+                var placeholder = $this.val() == 'range' ? 'ex: a-z, A-Z, 0-9' : 'Match';
+                $input.attr('placeholder', placeholder);
                 $(document).trigger('update-expression');
             })
         .end()
@@ -1175,14 +1180,9 @@ function buildExpression()
             expression[condition]();
         } else {
             if (condition == 'range') {
-                param = param.replace(/\[|\]/g, '');
-                param = $.inArray('-', param) > -1 ? param.replace('-', ',') : param;
-                param = param.split(',');
-                param[1] = param[1] == undefined ? '' : param[1];
-                expression[condition](param[0], param[1]);
-            } else {
-                expression[condition](param);
+                param = param.replace(/\[|\]|\s/g, '').replace(/,/g, '-').split('-');
             }
+            expression[condition].apply(expression, param);
         }
     });
 
