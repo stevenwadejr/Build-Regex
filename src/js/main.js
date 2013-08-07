@@ -64,7 +64,7 @@ $('#new-condition').on('click', function(){
 
 $(document).on({
     'first-row-created': function(){
-        $conditions_container.dragsort({ 
+        $conditions_container.dragsort({
             dragSelector: '.move-match-option',
             dragSelectorExclude: 'select, input',
             dragEnd: function(){
@@ -79,7 +79,7 @@ $(document).on({
 
 $('input[name="modifiers[]"]').on('change', function(){
     $(document).trigger('update-expression');
-})
+});
 
 
 function buildExpression()
@@ -97,13 +97,16 @@ function buildExpression()
         } else {
             if (condition == 'range') {
                 param = param.replace(/\[|\]|\s/g, '').replace(/,/g, '-').split('-');
+            } else {
+                param = [param];
             }
             expression[condition].apply(expression, param);
         }
     });
 
-    if ($conditions_container.children().length == 0) {
-        expression = '';
+    if ($conditions_container.children().length === 0) {
+        expression = null;
+        return false;
     }
 
     for (var i = 0; i < modifiers.length; i++) {
@@ -113,8 +116,8 @@ function buildExpression()
     $('#expression').find('span').text(expression);
 }
 
-$.fn.chain = function(fn) 
+$.fn.chain = function(fn)
 {
     fn.apply(this);
     return this;
-}
+};
