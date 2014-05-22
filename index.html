@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Build Regex - A Simple RegEx GUI</title>
+        <meta name="description" content="A simple regular expression GUI builder.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/build-regex.min.css">
+    </head>
+    <body>
+        
+        <div class="navbar navbar-fixed-top">
+            <div class="container">
+                <span class="navbar-brand" href="#">Build RegEx</span>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Modifiers <b class="caret"></b></a>
+                        <ul class="dropdown-menu noclose" role="menu" >
+                            <li role="presentation" class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="modifiers[]" value="g" /> Global
+                                </label>
+                            </li>
+                            <li role="presentation" class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="modifiers[]" value="i" /> Case Insensitive
+                                </label>
+                            </li>
+                            <li role="presentation" class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="modifiers[]" value="m" /> Multi Line
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <button id="new-condition" class="btn btn-primary col-lg-2">
+                    New Condition <i class="icon icon-plus"></i>
+                </button>
+                <div class="col-lg-10">
+                    <div class="" id="expression">
+                        <strong>Expression: </strong><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="conditions"></div>
+
+        </div>
+
+        <footer>
+            <div class="container">
+                Build RegEx - A Regular Expression GUI. Built with love by <a href="http://stevenwade.name" target="_blank">Steven Wade</a> using <a href="http://github.com/jehna/VerbalExpressions" target="_blank">VerbalExpressions.js</a>
+            </div>
+        </footer>
+
+        <script type="text/template" id="row-template">
+            <select class="match-options form-control col-lg-2"></select>
+            <div class="col-lg-8">
+                <input type="text" class="form-control match-param" placeholder="Match" />
+            </div>
+            <button class="remove-match-option btn btn-danger col-lg-1">
+                <i class="icon icon-close"></i>
+            </button>
+            <button class="move-match-option btn btn-default col-lg-1 pull-right">
+                <i class="icon icon-move-vertical"></i>
+            </button>
+        </script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/build-regex.min.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-36793997-2', 'buildregex.com');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>
